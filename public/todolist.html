@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <title>Document</title>
+  <style>
+    .year-month{
+      text-align: center;
+    }
+    .container2{
+      margin-left: 5%;
+    }
+    .container3{
+      text-align: center;
+    }
+    .btnContainer{
+        margin-top: 7%;
+        text-align: center;
+    }
+    #input_date{
+      display: none;
+    }
+    #wrapper{
+      position: relative;
+      height: auto;
+      min-height: 100%;
+      padding-bottom: 100px;
+    }
+    footer{
+      height: 100px;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+    }
+    
+  </style>
+</head>
+<body>
+  <div id="wrapper">
+    <nav id="navbar-example2" class="navbar px-3 mb-3">
+      <a class="navbar-brand" href="/main"><img src="../imagefile/logImage.png" alt="로고" style="width: 60px;"></a>
+      <ul class="nav nav-pills">          
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#" role="button" aria-expanded="false"><img src="../imagefile/사용자.png" style="width: 50px;"></a>
+          <!--<ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/logout" id="logoutBtn">로그아웃</a></li>
+            <li><a class="dropdown-item" href="/pwchange">비밀번호 변경</a></li>
+            <li><a class="dropdown-item" href="#scrollspyHeading5"></a></li>
+          </ul>-->
+        </li>
+      </ul>
+    </nav>
+  
+  
+    <div class="container">
+      <input type="text" id="input_date">
+      <div class="container2" style="width:300px;">
+          <div class="year-month">
+              <button type="button" onclick="changeMonth(-1);" class="btn btn-outline-danger" style="border:none;">◀</button>
+              <select id="month" class="form-control" style="width:80px;display:initial; border:none; font-weight:bold; text-align: right; font-size:large;" onchange="changeMonth();">
+                  <option value="1">Jan</option>
+                  <option value="2">Feb</option>
+                  <option value="3">Mar</option>
+                  <option value="4">Apr</option>
+                  <option value="5">May</option>
+                  <option value="6">Jun</option>
+                  <option value="7">Jul</option>
+                  <option value="8">Aug</option>
+                  <option value="9">Sept</option>
+                  <option value="10">Oct</option>
+                  <option value="11">Nov</option>
+                  <option value="12">Dec</option>
+              </select>
+              <input type="number" id="year" value="2020" style="width:80px;display:initial; border:none; font-weight:bold; text-align: left; font-size:large;" class="form-control" onchange="changeYear()">
+              <button type="button" onclick="changeMonth(1)" class="btn btn-outline-danger" style="border:none;">▶</button>
+          </div>
+          <table class="table table-bordered" style="border: solid indigo;">
+              <thead>
+                  <tr>
+                      <th style="color:red; text-align: center;">일</th>
+                      <th style="text-align:center;">월</th>
+                      <th style="text-align:center;">화</th>
+                      <th style="text-align:center;">수</th>
+                      <th style="text-align:center;">목</th>
+                      <th style="text-align:center;">금</th>
+                      <th style="color:blue; text-align:center;">토</th>
+                  </tr>
+              </thead>
+              <tbody id="tb_body">
+  
+              </tbody>
+          </table>
+      </div>
+    </div>
+    <div class="container3" style="padding-left:7.5%; padding-right:7.5%; margin-top:7%">
+      <textarea class="form-control border border-dark" placeholder="To do List" id="todoreturn"></textarea>
+    </div>
+    <div class="btnContainer" style="padding-left:7.5%; padding-right:7.5%;">
+        <input type="button" class="btn btn-outline-primary" style="width:100%; background-color:blue; color:white;" value="할일 저장" id="todoBtn">
+    </div>
+
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body register-container" style="text-align: center;">
+              <button type="button" class="btn btn-outline-secondary" onclick="location.href='/logout'">로그아웃</button>
+              <button type="button" class="btn btn-outline-secondary" onclick="location.href='/pwchange'">비밀번호 변경</button>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  <footer style="border-top:solid;">
+    <div style="text-align:center; margin-top:3%;">
+      <a type="button" href="/translang" class="footerBtn" style="margin-right:8%;"><img src="../imagefile/번역.png" style="width:60px;"></button>
+      <a type="button" href="/todolist" class="footerBtn" style="margin-right:8%;"><img src="../imagefile/달력.png" style="width:60px;"></button>
+      <a type="button" href="/weather" class="footerBtn" style="margin-right:8%;"><img src="../imagefile/날씨.png" style="width:60px;"></button>
+      <a type="button" href="/map" class="footerBtn" style="margin-right:0%;"><img src="../imagefile/지도.png" style="width:60px;"></button>
+    </div>
+  </footer>
+
+
+   
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <script src="../scripts/todolist.js"></script>
+  
+  
+</body>
+</html>

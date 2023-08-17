@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <title>Document</title>
+  <style>
+    #wrapper{
+      position: relative;
+      height: auto;
+      min-height: 100%;
+      padding-bottom: 100px;
+    }
+    footer{
+      height: 100px;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      background-color: white;
+    }
+    #searchWeather{
+      text-align: center;
+    }
+    #weatherTable{
+      margin-top:10%;
+    }
+    #weatherTable-container{
+      display: none;
+    }
+    #weather-searchButton{
+      display: none;
+    }
+    #searchWeather{
+      margin-top: 50%;
+    }
+  </style>
+</head>
+<body>
+    <div id="wrapper">
+      <nav id="navbar-example2" class="navbar px-3 mb-3">
+        <a class="navbar-brand" href="/main"><img src="../imagefile/logImage.png" alt="로고" style="width: 60px;"></a>
+        <ul class="nav nav-pills">          
+            <li class="nav-item dropdown">
+        
+        <a class="nav-link" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#" role="button" aria-expanded="false"><img src="../imagefile/사용자.png" style="width: 50px;"></a>
+        <!--<ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/logout">로그아웃</a></li>
+          <li><a class="dropdown-item" href="#scrollspyHeading4"></a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#scrollspyHeading5"></a></li>
+        </ul>-->
+        </li>
+        </ul>
+      </nav>
+    
+
+      <div class="container-fluid" id="searchWeather">
+        <label style="font-weight: bold; margin-bottom:3%">날씨를 알고싶은 장소를 영어로 적어주세요</label>
+        <input class="form-control me-2 border border-dark" type="search" placeholder="장소명" aria-label="Search" style="width:100%;" id="country-position">
+        <button class="btn btn-outline-success" type="submit" id="weather-searchButton">Search</button>
+      </div>
+
+      <div id="weatherTable-container">
+        <table class="table" id="weatherTable" style="border: solid indigo;">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">시간</th>
+              <th scope="col">온도</th>
+              <th scope="col">날씨 상태</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">●</th>
+              <td class="weatherTime0"></td>
+              <td class="weatherTemp0"></td>
+              <td class="weatherState0"></td>
+            </tr>
+            <tr>
+              <th scope="row">●</th>
+              <td class="weatherTime1"></td>
+              <td class="weatherTemp1"></td>
+              <td class="weatherState1"></td>
+            </tr>
+            <tr>
+              <th scope="row">●</th>
+              <td class="weatherTime2"></td>
+              <td class="weatherTemp2"></td>
+              <td class="weatherState2"></td>
+            </tr>
+            <tr>
+              <th scope="row">●</th>
+              <td class="weatherTime3"></td>
+              <td class="weatherTemp3"></td>
+              <td class="weatherState3"></td>
+            </tr>
+            <tr>
+              <th scope="row">●</th>
+              <td class="weatherTime4"></td>
+              <td class="weatherTemp4"></td>
+              <td class="weatherState4"></td>
+            </tr>
+            <tr>
+              <th scope="row">●</th>
+              <td class="weatherTime5"></td>
+              <td class="weatherTemp5"></td>
+              <td class="weatherState5"></td>
+            </tr>
+            <tr>
+              <th scope="row">●</th>
+              <td class="weatherTime6"></td>
+              <td class="weatherTemp6"></td>
+              <td class="weatherState6"></td>
+            </tr>
+            <tr>
+              <th scope="row">●</th>
+              <td class="weatherTime7"></td>
+              <td class="weatherTemp7"></td>
+              <td class="weatherState7"></td>
+            </tr>
+            <tr>
+              <th scope="row">●</th>
+              <td class="weatherTime8"></td>
+              <td class="weatherTemp8"></td>
+              <td class="weatherState8"></td>
+            </tr>
+            <tr>
+              <th scope="row">●</th>
+              <td class="weatherTime9"></td>
+              <td class="weatherTemp9"></td>
+              <td class="weatherState9"></td>
+            </tr>
+            <tr>
+              <th scope="row">●</th>
+              <td class="weatherTime10"></td>
+              <td class="weatherTemp10"></td>
+              <td class="weatherState10"></td>
+            </tr>
+            <tr>
+              <th scope="row">●</th>
+              <td class="weatherTime11"></td>
+              <td class="weatherTemp11"></td>
+              <td class="weatherState11"></td>
+            </tr>
+          
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body register-container" style="text-align: center;">
+                <button type="button" class="btn btn-outline-secondary" onclick="location.href='/logout'">로그아웃</button>
+                <button type="button" class="btn btn-outline-secondary" onclick="location.href='/pwchange'">비밀번호 변경</button>
+              </div>
+              <div class="modal-footer">
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <footer class="" style="border-top:solid;">
+      <div style="text-align:center; margin-top:3%;">
+        <a type="button" href="/translang" class="footerBtn" style="margin-right:8%;"><img src="../imagefile/번역.png" style="width:60px;"></button>
+        <a type="button" href="/todolist" class="footerBtn" style="margin-right:8%;"><img src="../imagefile/달력.png" style="width:60px;"></button>
+        <a type="button" href="/weather" class="footerBtn" style="margin-right:8%;"><img src="../imagefile/날씨.png" style="width:60px;"></button>
+        <a type="button" href="/map" class="footerBtn" style="margin-right:0%;"><img src="../imagefile/지도.png" style="width:60px;"></button>
+      </div>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="../scripts/weather.js"></script>
+    
+  
+  
+</body>
+</html>
